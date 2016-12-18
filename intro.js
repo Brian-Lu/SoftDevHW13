@@ -1,6 +1,3 @@
-var recent = 0;
-var previous = 1;
-
 /* Javascript Function and Variable Syntax from Mr. Brown
 //send diagnostic output to console
 //(Ctrl-Shift-J in Chromium & Firefox to reveal console)
@@ -95,7 +92,7 @@ for (var i = 0; i < list.length; i++) {
 
 function add(turner) {
     var list = document.getElementById("thelist");
-    newChild = document.createElement("li");
+    var newChild = document.createElement("li");
     newChild.innerHTML = "New Thing!";
     newChild.addEventListener("click", remove);
     newChild.addEventListener("mouseout", reset);
@@ -105,3 +102,18 @@ function add(turner) {
 
 document.getElementById("b").addEventListener("click", add);
 
+var previous = 0;
+var current = 1;
+
+function fib(turner) {
+    var newChild = document.createElement("li");
+    var list = document.getElementById("the2ndlist");
+    newChild.innerHTML = current;
+//    console.log(current);
+    var temp = current;
+    current += previous;
+    previous = temp;
+    list.appendChild(newChild);
+}
+
+document.getElementById("fibButton").addEventListener("click", fib);
