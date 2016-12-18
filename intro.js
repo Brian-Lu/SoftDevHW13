@@ -94,13 +94,14 @@ for (var i = 0; i < list.length; i++) {
 }
 
 function add(turner) {
-    newChild = document.createElement("li");
     var list = document.getElementById("thelist");
-    list.appendChild(newChild);
+    newChild = document.createElement("li");
     newChild.innerHTML = "New Thing!";
     newChild.addEventListener("click", remove);
     newChild.addEventListener("mouseout", reset);
     newChild.addEventListener("mouseover", setTo);
+    list.appendChild(newChild);
 }
 
 document.getElementById("b").addEventListener("click", add);
+
