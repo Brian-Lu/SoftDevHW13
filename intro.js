@@ -1,4 +1,7 @@
+var recent = 0;
+var previous = 1;
 
+/* Javascript Function and Variable Syntax from Mr. Brown
 //send diagnostic output to console
 //(Ctrl-Shift-J in Chromium & Firefox to reveal console)
 console.log("AYO");
@@ -35,7 +38,7 @@ var factR = function(n) {
 };
 
 
-//add list item 
+//add list item
 var addItem = function(text) {
     var list = document.getElementById("thelist");
     var newitem = document.createElement("li");
@@ -68,3 +71,36 @@ var o = { 'name' : 'Thluffy',
 	      return x+30;
 	  }
 	};
+*/
+
+function reset(turner) {
+    document.getElementById("h").innerHTML = "Hello World!";
+}
+
+function remove(turner) {
+    this.remove();
+}
+
+function setTo(e) {
+    document.getElementById("h").innerHTML = this.innerHTML;
+}
+
+var list = document.getElementsByTagName("li");
+// console.log(list)
+for (var i = 0; i < list.length; i++) {
+    list[i].addEventListener("click", remove);
+    list[i].addEventListener("mouseover", setTo);
+    list[i].addEventListener("mouseout", reset);
+}
+
+function add(turner) {
+    newChild = document.createElement("li");
+    var list = document.getElementById("thelist");
+    list.appendChild(newChild);
+    newChild.innerHTML = "New Thing!";
+    newChild.addEventListener("click", remove);
+    newChild.addEventListener("mouseout", reset);
+    newChild.addEventListener("mouseover", setTo);
+}
+
+document.getElementById("b").addEventListener("click", add);
